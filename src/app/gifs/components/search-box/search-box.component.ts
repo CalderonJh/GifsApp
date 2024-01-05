@@ -22,4 +22,9 @@ export class SearchBoxComponent {
 
   }
 
+
+  setInputValue(value:string):void{
+    this.tagInput.nativeElement.value = value;
+  }
+
 }
