@@ -1,8 +1,8 @@
 <div class="bg-dark border-right p-3" id="sidebar">
-  <h3 class="text-light">Gifs App</h3>
+  <h3 class="text-light"> Gifs App </h3>
   <hr class="text-white">
 
-  <p *ngIf="getTags.length ===0"
+  <p *ngIf="getTags.length === 0"
      class="text-sm-center text-light">
     No History
   </p>
@@ -18,7 +18,7 @@
             class="list-group-item list-group-item-action"
     > {{tag | titlecase}}
 
-      <button *ngIf="showButton === i"
+      <button *ngIf="showTrashButton === i"
               class="trash-button"
               (click)="deleteTag(i)"
       >

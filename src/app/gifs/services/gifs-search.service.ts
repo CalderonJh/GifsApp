@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {GifRes, SearchResponse} from "../interfaces/gif-response.iterface";
-import {SearchBoxComponent} from "../components/search-box/search-box.component";
 
 @Injectable({
   providedIn: 'root'
 })
-export class GifsService {
+export class GifsSearchService {
 
   public gifList: GifRes[] = [];
-  private _tagsHistory: string[] = ['Minecraft', 'test1', 'test2', 'test3', 'test4', 'test5'];
+  private _tagsHistory: string[] = ['minecraft', 'test1', 'test2', 'test3', 'test4', 'test5'];
 
   private apiKey: string = '21aqhf3HVmXlcsN7Z0xtUGrJHYQgUCDp';
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
@@ -20,12 +19,14 @@ export class GifsService {
     return [...this._tagsHistory];
   }
 
+
   private organizeHistory(tag:string):void{
     if (this._tagsHistory.includes(tag))
         this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
     this._tagsHistory.unshift(tag)
     this._tagsHistory = this._tagsHistory.splice(0, 12);
   }
+
 
   searchTag(tag: string): void {
     // remove extra spaces and accents.
@@ -43,12 +44,13 @@ export class GifsService {
           this.gifList = res.data;
         })
     }
-
   }
+
 
   deleteTag(index: number) {
     this._tagsHistory.splice(index, 1)
   }
+
 
   searchTrending():void{
     const params: HttpParams = new HttpParams()
@@ -60,7 +62,5 @@ export class GifsService {
         this.gifList = res.data;
       })
   }
-
-
 
 }

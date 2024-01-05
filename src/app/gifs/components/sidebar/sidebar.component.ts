@@ -1,37 +1,41 @@
-import {Component, EventEmitter} from '@angular/core';
-import {GifsService} from "../../services/gifs.service";
+import {Component, EventEmitter, Output} from '@angular/core';
+import {GifsSearchService} from "../../services/gifs-search.service";
+
 
 @Component({
-  selector: 'shared-sidebar',
+  selector: 'gifs-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  showButton: number | null = null;
+  showTrashButton: number | null = null;
+
+  // @Output()
+  // onSidebarSearch: EventEmitter<string> = new EventEmitter();
 
   constructor(
-    private gifsService: GifsService) {}
+    private gifsSearchService: GifsSearchService) {}
 
   get getTags():string[]{
-    return this.gifsService.getTagsHistory;
+    return this.gifsSearchService.getTagsHistory;
   }
 
   onMouseEnter(index: number){
-    this.showButton = index;
+    this.showTrashButton = index;
   }
 
   onMouseLeave(){
-    this.showButton = null;
+    this.showTrashButton = null;
   }
 
 
   deleteTag(index: number) {
-    this.gifsService.deleteTag(index)
+    this.gifsSearchService.deleteTag(index)
   }
 
   search(tag:string):void{
-    this.gifsService.searchTag(tag)
-    console.log(tag )
+
+    this.gifsSearchService.searchTag(tag)
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GifsService} from "../../services/gifs.service";
+import {GifsSearchService} from "../../services/gifs-search.service";
 import {GifRes} from "../../interfaces/gif-response.iterface";
 
 @Component({
@@ -8,7 +8,7 @@ import {GifRes} from "../../interfaces/gif-response.iterface";
 })
 export class HomePageComponent implements OnInit{
 
-  constructor(private gifsService:GifsService) {}
+  constructor(private gifsService:GifsSearchService) {}
 
   get getGifs(): GifRes[] {
     return this.gifsService.gifList;
