@@ -10,9 +10,6 @@ import {GifsSearchService} from "../../services/gifs-search.service";
 export class SidebarComponent {
   showTrashButton: number | null = null;
 
-  // @Output()
-  // onSidebarSearch: EventEmitter<string> = new EventEmitter();
-
   constructor(
     private gifsSearchService: GifsSearchService) {}
 

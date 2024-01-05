@@ -22,14 +22,14 @@ export class SearchBoxComponent {
   searchTag() {
     const newTag = this.tagInput.nativeElement.value;
     this.gifsSearchService.searchTag(newTag)
-    this.setSearchTitleValue(newTag)
+    this.searchTitle.nativeElement.innerText = 'Search GIFs';
     this.tagInput.nativeElement.value = '';
   }
 
 
   @Input()
   setSearchTitleValue(value:string):void{
-    this.searchTitle.nativeElement.innerHTML = `<h5>Results for '${value}'</h5>`;
+
   }
 
 }
