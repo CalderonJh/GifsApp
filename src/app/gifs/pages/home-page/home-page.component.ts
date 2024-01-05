@@ -15,6 +15,6 @@ export class HomePageComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.gifsService.searchTrending();
+    this.gifsService.onAppInit();
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {GifRes, SearchResponse} from "../interfaces/gif-response.iterface";
+import {LocalStorageService} from "./local-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,13 @@ import {GifRes, SearchResponse} from "../interfaces/gif-response.iterface";
 export class GifsSearchService {
 
   public gifList: GifRes[] = [];
-  private _tagsHistory: string[] = ['minecraft', 'test1', 'test2', 'test3', 'test4', 'test5'];
+  private _tagsHistory: string[] = [];
 
   private apiKey: string = '21aqhf3HVmXlcsN7Z0xtUGrJHYQgUCDp';
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+              private lsService:LocalStorageService) { }
 
   get getTagsHistory():string[] {
     return [...this._tagsHistory];
@@ -25,6 +27,7 @@ export class GifsSearchService {
         this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
     this._tagsHistory.unshift(tag)
     this._tagsHistory = this._tagsHistory.splice(0, 12);
+    this.lsService.saveHistoryToLocalStorage(this.getTagsHistory);
   }
 
 
@@ -49,6 +52,7 @@ export class GifsSearchService {
 
   deleteTag(index: number) {
     this._tagsHistory.splice(index, 1)
+    this.lsService.saveHistoryToLocalStorage(this.getTagsHistory);
   }
 
 
@@ -61,6 +65,11 @@ export class GifsSearchService {
       .subscribe(res => {
         this.gifList = res.data;
       })
+  }
+
+  onAppInit():void{
+    this._tagsHistory = this.lsService.loadFromLocalStorage()
+    this.searchTrending();
   }
 
 }
