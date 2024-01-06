@@ -67,9 +67,11 @@ export class GifsSearchService {
       })
   }
 
+
   onAppInit():void{
     this._tagsHistory = this.lsService.loadFromLocalStorage()
     this.searchTrending();
   }
+
 
 }
