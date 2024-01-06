@@ -12,14 +12,15 @@
   position: absolute;
   padding-left: 2px;
   right: 8px;
-  top:50%;
-  transform: translateY(-60%);
+  /*top:50%;*/
+  /*transform: translateY(-60%);*/
 
-  /*height: 80%;*/
-  /*bottom: 8%;*/
-  /*background-color: transparent;*/
-  /*border-color: transparent*/
+  height: 80%;
+  bottom: 8%;
 }
 button {
   position: relative;
+}
+.animate__animated.animate__fadeIn{
+  --animate-duration: 700ms;
 }

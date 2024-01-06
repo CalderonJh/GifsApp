@@ -11,17 +11,16 @@ export class LazyImageComponent implements OnInit{
   @Input()
   public _url!: string;
 
-  @Input()
-  public _height!: string;
-
-  @Input()
-  public _width!: string;
-
   public _alt: string = 'a GIF, surely';
+
+  public hasLoaded: boolean = false;
 
   ngOnInit(): void {
     if (!this._url) throw new Error('URL no provided')
-    // console.log(this._height, this._width)
+  }
+
+  onLoad(){
+    this.hasLoaded = true;
   }
 
 }
