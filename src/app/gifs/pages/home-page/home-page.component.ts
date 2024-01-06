@@ -4,7 +4,7 @@ import {GifRes} from "../../interfaces/gif-response.iterface";
 
 @Component({
   selector: 'gifs-home-page',
-  templateUrl: './home-page.component.html',
+  templateUrl: './home-page.component.html'
 })
 export class HomePageComponent implements OnInit{
 

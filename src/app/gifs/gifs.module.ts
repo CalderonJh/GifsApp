@@ -1,17 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HomePageComponent} from './pages/home-page/home-page.component';
-import {SearchBoxComponent} from "./components/search-box/search-box.component";
+import {SharedModule} from "../shared/shared.module";
+
 import {CardListComponent} from './components/card-list/card-list.component';
-import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import {GifCardComponent} from "./components/gif-card/gif-card.component";
+import {HomePageComponent} from './pages/home-page/home-page.component';
 import {LocalStorageService} from "./services/local-storage.service";
+import {SearchBoxComponent} from "./components/search-box/search-box.component";
+import {SidebarComponent} from "./components/sidebar/sidebar.component";
 
 
 @NgModule({
   declarations: [
+    CardListComponent,
+    GifCardComponent,
     HomePageComponent,
     SearchBoxComponent,
-    CardListComponent,
     SidebarComponent,
   ],
   exports: [
@@ -19,7 +23,8 @@ import {LocalStorageService} from "./services/local-storage.service";
     SidebarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   providers:[
     LocalStorageService

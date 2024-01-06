@@ -1,9 +1,16 @@
-# GifsApp
+## GifsApp
 
 https://calderonjh.github.io/GifsApp/
 
 <br>This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9<br>
 Web application to search for Gifs using the GIPHY API.<br>
+<ul>
+<li> <a href="https://developers.giphy.com/">Giphy Dev</a></li>
+<li> <a href="https://animate.style/">Animate CSS</a></li>
+<li> <a href="https://samherbert.net/svg-loaders/">Animated Loaders</a></li>
+</ul>
+
+
 
 #### Topics:
 <ul>
@@ -11,9 +18,10 @@ Web application to search for Gifs using the GIPHY API.<br>
 <li>Medium to large application structure</li>
 <li>Components</li>
 <li>ViewChild</li>
+<li>@Input @Output</li>
 <li>Services</li>
 <li>Search history</li>
-<li>Using API keys</li>
+<li>API keys</li>
 <li>LocalStorage</li>
 <li>HTTP requests</li>
 </ul>

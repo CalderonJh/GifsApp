@@ -8,14 +8,19 @@
 }
 
 
-.trash-button {
+.trash-img {
   position: absolute;
-  right: 2px;
-  height: 90%;
+  padding-left: 2px;
+  right: 8px;
+  /*top:50%;*/
+  /*transform: translateY(-60%);*/
+
+  height: 80%;
   bottom: 8%;
-  background-color: transparent;
-  border-color: transparent
 }
 button {
   position: relative;
+}
+.animate__animated.animate__fadeIn{
+  --animate-duration: 700ms;
 }

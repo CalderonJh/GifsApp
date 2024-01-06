@@ -40,7 +40,7 @@ export class GifsSearchService {
       const params: HttpParams = new HttpParams()
         .set('api_key', this.apiKey)
         .set('q', tag)
-        .set('limit', 25);
+        .set('limit', 24);
       this.http
         .get<SearchResponse>(`${this.serviceUrl}/search`, { params })
         .subscribe(res => {
@@ -59,7 +59,7 @@ export class GifsSearchService {
   searchTrending():void{
     const params: HttpParams = new HttpParams()
       .set('api_key', this.apiKey)
-      .set('limit', 25);
+      .set('limit', 24);
     this.http
       .get<SearchResponse>(`${this.serviceUrl}/trending`, { params })
       .subscribe(res => {
@@ -67,9 +67,11 @@ export class GifsSearchService {
       })
   }
 
+
   onAppInit():void{
     this._tagsHistory = this.lsService.loadFromLocalStorage()
     this.searchTrending();
   }
+
 
 }
